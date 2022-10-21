@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "../styles/MessageCard.css";
 import Avatar from "@mui/material/Avatar";
 import PersonIcon from "@mui/icons-material/Person";
-import { useAppSelector } from "./data/hooks";
+import { useAppSelector } from "../data/hooks";
 
 export const Messages = ({ userId }) => {
   const { messages } = useAppSelector((state) => state);

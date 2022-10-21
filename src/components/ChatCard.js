@@ -13,8 +13,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import SendIcon from "@mui/icons-material/Send";
 import { Messages } from "./Messages";
 import { v4 as uid } from "uuid";
-import { useAppDispatch } from "./data/hooks";
-import { addMessage } from "./data/messagesSlice";
+import { useAppDispatch } from "../data/hooks";
+import { addMessage } from "../data/messagesSlice";
 import { styles } from "../consts";
 
 export const ChatCard = ({ user }) => {
