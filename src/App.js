@@ -2,10 +2,10 @@ import { useState } from "react";
 import { ChatCard } from "./components/ChatCard";
 import Header from "./components/Header";
 import { UserLogin } from "./components/UserLogin";
-import { useAppDispatch, useAppSelector } from "./store/hooks";
+import { useAppDispatch, useAppSelector } from "./data/hooks";
 import "./styles/App.css";
 import { v4 as uid } from "uuid";
-import { addUser } from "./store/usersSlice";
+import { addUser } from "./data/usersSlice";
 
 function App() {
   const dispatch = useAppDispatch();
