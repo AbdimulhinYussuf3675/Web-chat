@@ -10,16 +10,16 @@
 }
 
 .message-box .username {
-    font-size: .7rem;
+    font-size: 1.1rem;
     padding: 2px 5px;
-    color: grey;
+    color: rgb(231, 89, 89);
 }
 
 .message-box .message {
     width: fit-content;
     margin-bottom: 8px;
     padding: .4rem .8rem;
-    background: rgb(255, 255, 255);
+    background: rgb(212, 177, 17);
 }
 
 .message-box .message .message-text {
@@ -27,8 +27,8 @@
 }
 
 .message-box .message .message-time {
-    font-size: .5rem;
-    color: #b5b6b8;
+    font-size: .8rem;
+    color: #437cee;
 }
 
 .message-box-left .message {
