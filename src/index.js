@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { messagesReducer } from "./data/messagesSlice";
+import { usersReducer } from "./data/usersSlice";
+import {
+  createStateSyncMiddleware,
+  initMessageListener,
+} from "redux-state-sync";
+import { persistReducer } from "redux-persist";
+import { excludedActions, persistConfig } from "./consts";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const rootReducer = combineReducers({
+  users: usersReducer,
+  messages: messagesReducer,
+});
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }).concat(
+      createStateSyncMiddleware({
+        blacklist: excludedActions,
+      })
+    ),
+});
+
+initMessageListener(store);
+
+export default store;
